@@ -30,27 +30,31 @@ import { Tile, Direction } from '../../models/game.model';
   styles: [`
     .game-container {
       position: relative;
-      background-color: #bbada0;
-      border-radius: 10px;
-      width: 360px;
-      height: 360px;
+      background: linear-gradient(135deg, #bbada0, #a39489);
+      border-radius: 16px;
+      width: 380px;
+      height: 380px;
       margin: 0 auto;
-      padding: 10px;
+      padding: 15px;
       box-sizing: border-box;
       touch-action: none;
       user-select: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 0.6s ease-out 0.8s both;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .grid-container {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 15px;
+      left: 15px;
       z-index: 1;
     }
 
     .grid-row {
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .grid-row:last-child {
@@ -58,11 +62,26 @@ import { Tile, Direction } from '../../models/game.model';
     }
 
     .grid-cell {
-      width: 80px;
-      height: 80px;
-      background-color: rgba(238, 228, 218, 0.35);
-      border-radius: 6px;
-      margin-right: 10px;
+      width: 82px;
+      height: 82px;
+      background: rgba(238, 228, 218, 0.35);
+      border-radius: 8px;
+      margin-right: 12px;
+      position: relative;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .grid-cell::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+      border-radius: 8px;
+      pointer-events: none;
     }
 
     .grid-cell:last-child {
@@ -71,20 +90,31 @@ import { Tile, Direction } from '../../models/game.model';
 
     .tile-container {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 15px;
+      left: 15px;
       z-index: 10;
     }
 
     @media (max-width: 480px) {
       .game-container {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
+        padding: 12px;
+      }
+      
+      .grid-container, .tile-container {
+        top: 12px;
+        left: 12px;
+      }
+      
+      .grid-row {
+        margin-bottom: 10px;
       }
       
       .grid-cell {
-        width: 60px;
-        height: 60px;
+        width: 64px;
+        height: 64px;
+        margin-right: 10px;
       }
     }
   `]

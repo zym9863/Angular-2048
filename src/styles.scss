@@ -10,7 +10,8 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  background-color: #faf8ef;
+  background: linear-gradient(135deg, #faf8ef 0%, #f5f2e8 50%, #eee4da 100%);
+  background-attachment: fixed;
   color: #776e65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,6 +23,7 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  transition: all 0.3s ease;
 }
 
 /* 移除选中文本的高亮 */
@@ -49,4 +51,28 @@ button {
 app-root {
   display: block;
   min-height: 100vh;
+}
+
+/* 添加全局动画关键帧 */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(243, 215, 116, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(243, 215, 116, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(243, 215, 116, 0.2); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
