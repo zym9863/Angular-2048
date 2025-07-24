@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* 全局样式重置和基础样式 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  background-color: #faf8ef;
+  color: #776e65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 移除按钮默认样式 */
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* 移除选中文本的高亮 */
+.game-container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 防止移动端缩放 */
+@viewport {
+  width: device-width;
+  zoom: 1;
+}
+
+/* 移动端优化 */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* 确保应用占满整个视窗 */
+app-root {
+  display: block;
+  min-height: 100vh;
+}
